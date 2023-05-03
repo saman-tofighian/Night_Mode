@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box;
+        }
+        .toggle{
+            width: 100px;
+            height: 40px;
+            border-radius: 50px;
+            border: 2px solid #111;
+            cursor: pointer;
+        }
+        .toggle>span{
+            display: block;
+            width: 34px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: black;
+            transform: translateX(-1px);
+            transition: .6s linear;
+        }
+        #justify{
+            text-align: justify;
+            line-height: 2;
+        }
+        p{
+            font-family: cursive;
+        }
+        main{
+            transition: .6s linear;
+        }
+        .change{
+            background: #222;
+            color: #fefefe;
+        }
+        #date{
+            transition: .6s linear;
+        }
+    </style>
+</head>
+<body>
+    <main class="container-fluid" id="reza">
+        <section class="container mx-auto">
+            <div class="row col-9 mx-auto align-items-center border border-5 p-2">
+                <div class="col-6">
+                    <div class="toggle" onclick="saman()">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <p class="text-end display-6" id="date"></p>
+                </div>
+            </div>
+            <div class="col-9 mx-auto mt-4 border border-5 p-3">
+                <p id="justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro deleniti ea velit repellendus rerum ex tempore vitae, blanditiis totam atque cupiditate dolor ipsam, doloremque rem nostrum quo ad delectus consequatur.
+                Illo aspernatur consequuntur odit quod distinctio exercitationem adipisci aliquam, assumenda recusandae velit nisi pariatur alias perferendis! Adipisci rem quisquam hic ea tempore libero exercitationem nihil sunt fugiat blanditiis. Iure, corrupti!
+                Nobis repellat aperiam ipsam dolorem esse corrupti, quam non excepturi atque vero expedita quia numquam quo reprehenderit incidunt tempore magnam? Modi provident vero ratione sequi nam ipsa debitis a pariatur.
+                Mollitia ex deleniti laboriosam dignissimos obcaecati voluptas optio, aliquid ducimus asperiores repellendus ut incidunt sint quos dolor fuga ipsa possimus quod? Animi consequatur reiciendis omnis itaque reprehenderit tenetur mollitia non.
+                Ab deserunt quos suscipit tenetur nihil ipsam explicabo reiciendis mollitia id? Aspernatur, dolore ratione? Fugiat molestias natus mollitia adipisci, repellat reiciendis suscipit sapiente, quisquam aliquam laudantium error obcaecati! Totam, quia.
+                Dolores dolore suscipit mollitia, autem deleniti voluptatem repellat ipsa eligendi, inventore nam minus ullam quia quisquam amet dicta veniam repudiandae, itaque molestias doloribus eius ipsum odit. Corporis quaerat error necessitatibus.
+                Repellat, doloremque pariatur libero atque perferendis quae consectetur odit provident, facere, tempore optio iure! Odio voluptate, dolores porro dicta hic ullam explicabo doloremque quis quos repudiandae earum similique cumque! Id.
+                Recusandae quos doloremque a ex ipsam. Ducimus, accusamus vel harum at quis officia accusantium pariatur laborum ullam possimus quo necessitatibus quia reprehenderit ad soluta, animi in neque ipsum. Ea, doloribus.
+                Deserunt autem nulla ducimus, id consequatur dolorum recusandae, quaerat culpa illum rerum saepe officia excepturi aspernatur? Accusamus, fuga dignissimos? Aut ipsa corrupti distinctio doloremque voluptate eligendi, doloribus repellat deleniti omnis.
+                Eum animi voluptatem asperiores voluptatum sunt debitis aut ipsum nihil sit sequi aspernatur adipisci alias sapiente accusantium repudiandae, deserunt eligendi, consequatur quasi. Reprehenderit doloremque error fugit, quod itaque beatae quidem.
+                Perferendis, iste tempore esse vero minus iure est tenetur, unde repellendus dignissimos, doloribus porro. Veniam deleniti nostrum, numquam magni enim atque? Eligendi animi velit enim officiis expedita odit omnis incidunt.
+                Quae facilis ipsa sit adipisci quidem recusandae? Enim, animi? Neque amet, rem quis explicabo assumenda officia perspiciatis quod facilis, voluptatum quia ipsa, aut nemo necessitatibus laboriosam fuga. Totam, eaque earum!
+                Hic quaerat eaque similique, voluptates dignissimos assumenda ut? Tempora dolore laboriosam, ex eius ipsum incidunt sapiente eaque, asperiores exercitationem a aspernatur velit vel quas corporis facere ea sed reprehenderit tenetur.</p>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    let _hours = new Date().getHours()
+    let _test = ''
+    function _date(){
+        if(_hours<=6){
+            _test = 'MidNight'
+        }
+        else if(_hours>6 && _hours<=10){
+            _test = 'Morning'
+        }
+        else if(_hours>10 && _hours<=14){
+            _test = 'Afternoon'
+        }
+        else if(_hours>14 && _hours<=18){
+            _test = 'Evening'
+        }
+        else{
+            _test = 'Night'
+        }
+        document.getElementById('date').textContent = 'Hi dear , good ' + _test
+    }
+    _date()
+
+    let x = document.querySelector('.toggle>span')
+    let num = 1
+    function saman(){
+        if(num%2){
+            x.style.transform = 'translateX(63px)'
+            x.style.background = '#c2c2c2'
+            document.getElementById('date').style.color = 'crimson'
+        }
+        else{
+            x.style.transform = 'translateX(0)'
+            x.style.background = '#222'
+            document.getElementById('date').style.color = '#111'
+        }
+        num++
+        document.getElementById('reza').classList.toggle('change')
+        
+    }
+</script>
+</html>
